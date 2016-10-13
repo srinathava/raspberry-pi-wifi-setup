@@ -1,5 +1,4 @@
-from twisted.internet import reactor
-from twisted.internet import defer
+from twisted.internet import reactor, defer, ssl
 from twisted.internet.defer import inlineCallbacks, returnValue
 from twisted.web import server, resource
 from twisted.web.static import File
@@ -36,9 +35,12 @@ class SetupWifiWebsocketProtocol(WebSocketServerProtocol):
         print("WebSocket connection closed: {0}".format(reason))
 
 def startServer():
-    factory = WebSocketServerFactory(u"ws://127.0.0.1:9000")
+    contextFactory = ssl.DefaultOpenSSLContextFactory('keys/server.key', 'keys/server.crt')
+
+    factory = WebSocketServerFactory(u"wss://127.0.0.1:9000")
     factory.protocol = SetupWifiWebsocketProtocol
-    reactor.listenTCP(9000, factory)
+
+    reactor.listenWS(9000, factory, contextFactory)
 
     reactor.run()
 
