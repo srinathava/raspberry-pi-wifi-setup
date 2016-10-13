@@ -14,7 +14,7 @@ $(function searchForIp() {
 
     function tryIp(ipIdx) {
         var uri = "192.168.1." + ipIdx;
-        var wsuri = "ws:" + uri + ":9000/ws";
+        var wsuri = "wss:" + uri + ":9000/ws";
         var sock = null;
 
         try {
@@ -52,5 +52,6 @@ $(function searchForIp() {
         }
     }
 
+    log("Searching for sleep monitor");
     tryNextIp();
 });
