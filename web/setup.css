@@ -1,0 +1,12 @@
+#ssid-list-container {
+    margin: 15px;
+}
+
+#step2, #step3, #ssid-list-container, #set-ssid-passwd-status-container {
+    display: none;
+}
+
+#ssid-list, #set-ssid-passwd-status {
+    margin-top: 15px;
+}
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>
+       Sleep Monitor Setup
+     </title>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+     <script type="text/javascript" src="setup.js"></script>
+     <link rel="stylesheet" type="text/css" href="setup.css"/>
+   </head>
+   <body>
+      <h1>Sleep Monitor Setup</h1>
+      <noscript>You must enable JavaScript</noscript>
+
+      This web-page will guide you through the setup for the Sleep
+      Monitor. 
+
+      <h2>Step 1: Plug in your Sleep Monitor to your Router</h2>
+      <ol>
+        <li>Use the provided ethernet cable to connect the device to the
+          router. While you are there, note down the password for your Wifi
+          network. On some wireless routers, it is stuck on the router with
+          a sticker. The WiFi password is also sometimes called a "WPA2
+          Key".
+        </li>
+        <li>Use the provided power adapter to plug in the device to the wall</li>
+      </ol>
+
+      Once this is done, please press <input type="button" id="step2-button" value="Next" /> to go step 2.
+
+      <div id="step2">
+        <h2>Step 2: Searching for the Sleep Monitor</h2>
+        Please wait, I am searching for a Sleep monitor on the local
+        network.
+        <div id="ssid-list-container">
+          Found it! Please configure the WiFi password by selecting the
+          name of your WiFi network and providing the password.
+
+          <div id="ssid-list">
+            SSID:
+            <select id="wifi-ssid-selector">
+            </select>
+            Password:
+            <input type="text" id="wifi-password">
+            <input type="button" id="wifi-connect" value="Connect!">
+          </div>
+          
+          <div id="set-ssid-passwd-status-container" class="initially-hidden">
+            Wifi-status: 
+            <span id="set-ssid-passwd-status"></span>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="step3">
+        <h2>Step 3: Success!</h2>
+        Success! Your Sleep Monitor is configured to use your Wifi network.
+        You can now disconnect it from the router and place it near the
+        baby.
+      </div>
+
+   </body>
+</html>
