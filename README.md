@@ -16,3 +16,20 @@ needing a Wifi password.
 NOTE: I initially had the idea that the user could just visit a web-site hosted outside the local network and 
 make Javascript contained in that web-site scan the local network for an open websocket connection. That however
 just does not work becuase most modern browsers prevent cross-domain content loading.
+
+## Raspberry Pi setup for "device vendor"
+In order to create a Rapsberry Pi which can offer such a workflow for a user, the device creator needs to set
+up the Raspberry Pi as follows:
+
+- Update Python with autobahn:
+        
+        pip install autobahn
+        
+- Download this repo:
+  
+        git clone https://github.com/srinathava/raspberry-pi-wifi-setup.git
+        
+- Modify /etc/rc.local to run the websocket server as part of the boot sequence. Use your favorite editor to include the following in that file:
+       
+       python /home/pi/raspberry-pi-wifi-setup/server.py
+       
